@@ -1,0 +1,7 @@
+---
+applications:
+- name: todos-web
+  memory: 1G
+  host: todos-web
+  buildpack: staticfile_buildpack
+
