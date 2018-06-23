@@ -43,7 +43,7 @@
 					let self = this;
 					values.forEach(todo => {
 						if(todo.id && !self.offline) {
-							Vue.http.patch('/api/' + todo.id,todo);
+							Vue.http.patch('/todos-command/' + todo.id,todo);
 						}
 					});
 				}
@@ -95,7 +95,7 @@
 				let result = {};
 				let self = this;
 				if(!self.offline) {
-					Vue.http.post('/api/', {
+					Vue.http.post('/todos-command/', {
 						title: todo.title,
 						completed: todo.completed
 					}).then(response => {
@@ -109,7 +109,7 @@
 			removeTodo: function (todo) {
 				let self = this;
 				if(!self.offline) {
-					Vue.http.delete( '/api/' + todo.id).then(response => {
+					Vue.http.delete( '/todos-command/' + todo.id).then(response => {
 						var index = self.todos.indexOf(todo);
 						self.todos.splice(index, 1);
 					});
@@ -148,7 +148,7 @@
 		beforeMount() {
 			let self = this;
 
-			Vue.http.get('/api/').then(response => {
+			Vue.http.get('/todos-query/').then(response => {
 				let list = JSON.parse(response.bodyText);
 				// --- meh --- from spring-boot-data-rest
 				// let list = JSON.parse(response.bodyText)._embedded.todos;

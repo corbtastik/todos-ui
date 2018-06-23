@@ -1,7 +1,8 @@
 ---
 applications:
-- name: todos-web
-  memory: 1G
-  host: todos-web
+- name: todos-ui
+  memory: 512MB
+  routes:
+  - route: todos-ui.cfapps.io
+  - route: todos-ui-1-0-0.cfapps.io
   buildpack: staticfile_buildpack
-
