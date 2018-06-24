@@ -77,7 +77,7 @@ Note - make sure to load the UI from the proxy (i.e. ``localhost:9999``)
 
 ## Run on PAS
 
-[Pivotal Application Service](https://pivotal.io/platform/pivotal-application-service) is a modern runtime for Java, .NET, Node.js apps and many more, that provides a connected 5-star development to delivery experience.  PAS provides a cloud agnostic surface for delivering apps, apps such as Spring Boot Microservices...and...wait for it...Single Page Apps :bulb: like those on [todomvc.com](http://todomvc.com/).  Rarely in computing do we see this level of harmony across multiple application development frameworks and platform.  Its supersonic dev to delivery with only Cloud Native principles as the interface.
+[Pivotal Application Service](https://pivotal.io/platform/pivotal-application-service) is a modern runtime for Java, .NET, Node.js apps and many more, that provides a connected 5-star development to delivery experience.  PAS provides a cloud agnostic surface for delivering apps, apps such as Spring Boot Microservices...and...wait for it...Single Page Apps :bulb: like those on [todomvc.com](http://todomvc.com/).  Rarely in computing do we see this level of support across multiple application development frameworks in harmony with a platform.  Its supersonic dev to delivery with only Cloud Native principles as the interface.
 
 The gist is PAS is great for Frontend Apps built in the latest bits :smile:
 
