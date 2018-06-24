@@ -150,9 +150,25 @@ Once Todo(s) UI is running, check app versioning.
 APP_VERSION: 1.0.0.SNAP
 ```  
 
-## Vue.js TodoMVC Example
+#### Go in peace and make cloudy Todo(s)
 
-**Original README content from todomvc.com**
+Open the Todo(s) UI in your browser ``http://todos-ui.cfapps.io`` (:heavy_exclamation_mark: your route will be different)
+
+<p align="center">
+    <img src="https://github.com/corbtastik/todos-images/raw/master/todos-ui/todos-ui-offline-cloudy.png" width="640">
+</p>
+
+Try opening it from the gateway ``http://todos-gateway.cfapps.io`` which will put it in-front of the ``/api``.
+
+<p align="center">
+    <img src="https://github.com/corbtastik/todos-images/raw/master/todos-ui/todos-ui-online-cloudy.png" width="640">
+</p>
+
+### Stay Frosty  
+
+#### Adventure Time - [take some bacon and put it in a pancake!](https://www.youtube.com/watch?v=cUYSGojUuAU)  
+
+## Vue.js TodoMVC Example (original readme content)
 
 > Vue.js is a library for building interactive web interfaces.
 It provides data-driven, nestable view components with a simple and flexible API.
