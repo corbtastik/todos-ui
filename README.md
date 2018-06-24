@@ -118,7 +118,7 @@ env-val-1: 1.0.0.SNAP
 
 Yes you can go from zero to hero with one command :sparkling_heart:
 
-Make sure you're in the Todo(s) UI project root (folder with ``manifest.yml``) and cf push...awe yeah! :sunglasses:
+Make sure you're in the Todo(s) UI project root (folder with ``manifest.yml``) and ``cf push``...awe yeah! :sunglasses:
 
 ```bash
 > cf push --vars-file ./vars.yml
