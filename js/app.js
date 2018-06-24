@@ -1,9 +1,7 @@
 /*global Vue */
 
 (function (exports) {
-
 	'use strict';
-
 	Vue.use(VueResource);
 	var filters = {
 		all: function (todos) {

@@ -1,4 +1,4 @@
-## Todo(s) UI
+## Todo(s) UI  
 
 This repo contains the todomvc.com, Vue.js implementation, which is used to interact with Todo(s) API directly or the Todo(s) Gateway.  The major difference between this version and the one on todomvc.com is it calls a backing API to create, retrieve, update and delete Todo(s). This amounts to using ``VueResource`` to call the backing API from Vue.js.
 
