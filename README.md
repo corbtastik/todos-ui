@@ -166,7 +166,7 @@ Try opening it from the gateway ``http://todos-gateway.cfapps.io`` which will pu
 
 ### Stay Frosty  
 
-#### Adventure Time - [take some bacon and put it in a pancake!](https://www.youtube.com/watch?v=cUYSGojUuAU)  
+#### Celebrate - [Yub Nub!](https://www.youtube.com/watch?v=np6vAuS0KNs)  
 
 ## Vue.js TodoMVC Example (original readme content)
 
