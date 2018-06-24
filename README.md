@@ -141,6 +141,15 @@ buildpack:         staticfile_buildpack
 #0   running   2018-06-24T03:51:31Z   0.1%   12.1M of 512M   56M of 1G
 ```  
 
+### Verify on Cloud  
+
+Once Todo(s) UI is running, check app versioning.
+
+```bash
+> cf env todos-ui | grep APP_VERSION
+APP_VERSION: 1.0.0.SNAP
+```  
+
 ## Vue.js TodoMVC Example
 
 **Original README content from todomvc.com**
