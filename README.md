@@ -121,11 +121,11 @@ Yes you can go from zero to hero with one command :sparkling_heart:
 Make sure you're in the Todo(s) UI project root (folder with ``manifest.yml``) and cf push...awe yeah! :sunglasses:
 
 ```bash
-:pig_nose: cf push --vars-file ./vars.yml
+> cf push --vars-file ./vars.yml
 ```
 
 ```bash
-:pig_nose: cf app todos-ui
+> cf app todos-ui
 Showing health and status for app todos-ui in org bubbles / space dev as ...
 
 name:              todos-ui
