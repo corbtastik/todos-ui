@@ -1,0 +1,6 @@
+app:
+  name: todos-ui
+  memory: 512MB
+  route: todos-ui.cfapps.io
+env-key-1: APP_VERSION
+env-val-1: 1.0.0.SNAP

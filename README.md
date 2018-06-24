@@ -85,10 +85,9 @@ The gist is PAS is great for Frontend Apps built in the latest bits :smile:
 
 The only PAS specific artifacts in this code repo are ``manifest.yml`` and ``vars.yml``.  Modify ``vars.yml`` to add properties **specific to your PAS environment**. See [Variable Substitution](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#multi-manifests) for more information.  The gist is we only need to set values for our PAS deployment in ``vars.yml`` and pass that file to ``cf push``.
 
-The Todo(s) API requires 2 environment variables:
+The Todo(s) UI sets 1 optional variable
 
-1. ``EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE`` - Service Discovery URL
-2. ``TODOS_API_LIMIT`` - How many Todo(s) your account can have
+1. ``APP_VERSION`` - Todo(s) UI version
 
 ### manifest.yml
 
@@ -99,30 +98,51 @@ applications:
   memory: ((app.memory))
   routes:
   - route: ((app.route))
-  path: ((app.artifact))
-  buildpack: java_buildpack
+  buildpack: staticfile_buildpack
   env:
     ((env-key-1)): ((env-val-1))
-    ((env-key-2)): ((env-val-2))
 ```  
 
 ### vars.yml
 
 ```yml
 app:
-  name: todos-api
-  artifact: target/todos-api-1.0.0.SNAP.jar
-  memory: 1G
-  route: todos-api.cfapps.io
-env-key-1: EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE
-env-val-1: http://cloud-index.cfapps.io/eureka/
-env-key-2: TODOS_API_LIMIT
-env-val-2: 5
+  name: todos-ui
+  memory: 512MB
+  route: todos-ui.cfapps.io
+env-key-1: APP_VERSION
+env-val-1: 1.0.0.SNAP
 ```
 
 ## cf push...awe yeah
 
-Yes you can go from zero to hero with one command :)
+/play yeah
+
+Yes you can go from zero to hero with one command :sparkling_heart:
+
+Make sure you're in the Todo(s) UI project root (folder with ``manifest.yml``) and cf push...awe yeah!
+
+```bash
+> cf push --vars-file ./vars.yml
+```
+
+```bash
+> cf app todos-api
+Showing health and status for app todos-api in org bubbles / space dev as ...  
+
+name:              todos-api
+requested state:   started
+instances:         1/1
+usage:             1G x 1 instances
+routes:            todos-api.cfapps.io
+last uploaded:     Sat 23 Jun 21:33:25 CDT 2018
+stack:             cflinuxfs2
+buildpack:         java_buildpack
+
+     state     since                  cpu     memory         disk           details
+#0   running   2018-06-24T02:34:44Z   14.7%   379.2M of 1G   170.3M of 1G
+```  
+
 
 ## Vue.js TodoMVC Example
 

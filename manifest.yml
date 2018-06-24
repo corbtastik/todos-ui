@@ -1,8 +1,9 @@
 ---
 applications:
-- name: todos-ui
-  memory: 512MB
+- name: ((app.name))
+  memory: ((app.memory))
   routes:
-  - route: todos-ui.cfapps.io
-  - route: todos-ui-1-0-0.cfapps.io
+  - route: ((app.route))
   buildpack: staticfile_buildpack
+  env:
+    ((env-key-1)): ((env-val-1))
