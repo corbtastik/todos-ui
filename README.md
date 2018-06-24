@@ -9,12 +9,14 @@ This repo contains the todomvc.com, Vue.js implementation, which is used to inte
 
 ### Prerequisite(s)
 
-* Node.js and NPM to package dependencies, Node.js is NOT used to run this app.
+* Node.js and NPM to pull dependencies, Node.js is **not** used to run this app
 * An HTTP Server, this doc shows [http-server](https://github.com/indexzero/http-server) which is a command line HTTP Server
 
 ### Build
 
-This Application is JavaScript, HTML and CSS so there really isn't a build per-se.  However Node.js/NPM is used to pull JavaScript and CSS dependencies such as Vue.js, VueResource and TodoMVC libs.  The package.json defines dependencies for this Application.
+This Application is JavaScript, HTML and CSS so there really isn't a build per-se.  However Node.js/NPM is used to pull JavaScript and CSS dependencies such as Vue.js, VueResource and TodoMVC libs.  
+
+``package.json`` defines dependencies for this Application.
 
 ```json
 {
@@ -42,20 +44,25 @@ npm install
 
 ### Run
 
-After Building, start ``http-server`` from the ``todos-ui`` directory to boot the UI.  By default use port 4040.
+After Building, start ``http-server`` from the ``todos-ui`` directory to boot the UI.  By default use port ``4040``.
 
 ```bash
-http-server -p 4040 .
+> http-server -p 4040 .
+Starting up http-server, serving .
+Available on:
+  http://127.0.0.1:4040
+  http://10.0.1.8:4040
+Hit CTRL-C to stop the server
 ```
 
 ### Verify
 
-Once Todo(s) UI is running open ``http://localhost:4040`` in a browser (Chrome wink wink).
+Once Todo(s) UI is running open ``http://localhost:4040`` in a browser (Chrome :wink: :wink:).
 
 **API Offline**
 
 <p align="center">
-    <img src="https://github.com/corbtastik/todos-images/raw/master/todos-ui/todos-ui-offline.png">
+    <img src="https://github.com/corbtastik/todos-images/raw/master/todos-ui/todos-ui-offline.png" width="640">
 </p>
 
 If running Todo(s) UI in offline mode (i.e. ``/api`` 404'd) the Todo(s) entered will be saved to a local array and lost when the browser closes.  Todo(s) UI will connect with [Todo(s) Gateway](https://github.com/corbtastik/todos-gateway) if running locally and if [Todo(s) API](https://github.com/corbtastik/todos-api) is also running then we can save Todo(s) entered from the browser.
