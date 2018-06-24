@@ -69,11 +69,60 @@ If running Todo(s) UI in offline mode (i.e. ``/api`` 404'd) then Todo(s) entered
 
 **API Online**
 
-Note - make sure to load the UI from the proxy (i.e. localhost:9999)
+Note - make sure to load the UI from the proxy (i.e. ``localhost:9999``)
 
 <p align="center">
     <img src="https://github.com/corbtastik/todos-images/raw/master/todos-ui/todos-ui-online.png" width="640">
 </p>
+
+## Run on PAS
+
+[Pivotal Application Service](https://pivotal.io/platform/pivotal-application-service) is a modern runtime for Java, .NET, Node.js apps and many more, that provides a connected 5-star development to delivery experience.  PAS provides a cloud agnostic surface for delivering apps, apps such as Spring Boot Microservices...and...wait for it...Single Page Apps :bulb: like those on [todomvc.com](http://todomvc.com/).  Rarely in computing do we see this level of harmony across multiple application development frameworks and platform.  Its supersonic dev to delivery with only Cloud Native principles as the interface.
+
+The gist is PAS is great for Frontend Apps built in the latest bits :smile:
+
+### manifest.yml & vars.yml
+
+The only PAS specific artifacts in this code repo are ``manifest.yml`` and ``vars.yml``.  Modify ``vars.yml`` to add properties **specific to your PAS environment**. See [Variable Substitution](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#multi-manifests) for more information.  The gist is we only need to set values for our PAS deployment in ``vars.yml`` and pass that file to ``cf push``.
+
+The Todo(s) API requires 2 environment variables:
+
+1. ``EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE`` - Service Discovery URL
+2. ``TODOS_API_LIMIT`` - How many Todo(s) your account can have
+
+### manifest.yml
+
+```yml
+---
+applications:
+- name: ((app.name))
+  memory: ((app.memory))
+  routes:
+  - route: ((app.route))
+  path: ((app.artifact))
+  buildpack: java_buildpack
+  env:
+    ((env-key-1)): ((env-val-1))
+    ((env-key-2)): ((env-val-2))
+```  
+
+### vars.yml
+
+```yml
+app:
+  name: todos-api
+  artifact: target/todos-api-1.0.0.SNAP.jar
+  memory: 1G
+  route: todos-api.cfapps.io
+env-key-1: EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE
+env-val-1: http://cloud-index.cfapps.io/eureka/
+env-key-2: TODOS_API_LIMIT
+env-val-2: 5
+```
+
+## cf push...awe yeah
+
+Yes you can go from zero to hero with one command :)
 
 ## Vue.js TodoMVC Example
 
