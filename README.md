@@ -121,26 +121,25 @@ Yes you can go from zero to hero with one command :sparkling_heart:
 Make sure you're in the Todo(s) UI project root (folder with ``manifest.yml``) and cf push...awe yeah! :sunglasses:
 
 ```bash
-> cf push --vars-file ./vars.yml
+:pig_nose: cf push --vars-file ./vars.yml
 ```
 
 ```bash
-> cf app todos-api
-Showing health and status for app todos-api in org bubbles / space dev as ...  
+:pig_nose: cf app todos-ui
+Showing health and status for app todos-ui in org bubbles / space dev as ...
 
-name:              todos-api
+name:              todos-ui
 requested state:   started
 instances:         1/1
-usage:             1G x 1 instances
-routes:            todos-api.cfapps.io
-last uploaded:     Sat 23 Jun 21:33:25 CDT 2018
+usage:             512M x 1 instances
+routes:            todos-ui.cfapps.io
+last uploaded:     Sat 23 Jun 22:50:59 CDT 2018
 stack:             cflinuxfs2
-buildpack:         java_buildpack
+buildpack:         staticfile_buildpack
 
-     state     since                  cpu     memory         disk           details
-#0   running   2018-06-24T02:34:44Z   14.7%   379.2M of 1G   170.3M of 1G
+     state     since                  cpu    memory          disk        details
+#0   running   2018-06-24T03:51:31Z   0.1%   12.1M of 512M   56M of 1G
 ```  
-
 
 ## Vue.js TodoMVC Example
 
