@@ -1,6 +1,6 @@
 ## Todo(s) UI  
 
-This repo contains the todomvc.com, Vue.js implementation, which is used to interact with Todo(s) API directly or the Todo(s) Gateway.  The major difference between this version and the one on todomvc.com is it calls a backing API to create, retrieve, update and delete Todo(s). This amounts to using ``VueResource`` to call the backing API from Vue.js.
+This repo contains the [todomvc.com](http://todomvc.com), Vue.js implementation, which is used to interact with [Todo(s) API](https://github.com/corbtastik/todos-api.git) directly or the [Todo(s) Gateway](https://github.com/corbtastik/todos-gateway.git).  The major difference between this version and the one on [todomvc.com](http://todomvc.com) is it calls a backing API to create, retrieve, update and delete Todo(s). This amounts to using ``VueResource`` to call the backing API from Vue.js, that and a few log statements are the only differences.
 
 ### Primary dependencies
 
@@ -15,7 +15,6 @@ This repo contains the todomvc.com, Vue.js implementation, which is used to inte
 ### Build
 
 This Application is JavaScript, HTML and CSS so there really isn't a build per-se.  However Node.js/NPM is used to pull JavaScript and CSS dependencies such as Vue.js, VueResource and TodoMVC libs.  
-
 ``package.json`` defines dependencies for this Application.
 
 ```json
@@ -33,13 +32,13 @@ This Application is JavaScript, HTML and CSS so there really isn't a build per-s
 
 ```bash
 # Optional - install http-server if you're gonna use it to run this App
-npm install -g http-server
+> npm install -g http-server
 # Get the code
-git clone https://github.com/corbtastik/todos-ui.git
-cd todos-ui
+> git clone https://github.com/corbtastik/todos-ui.git
+> cd todos-ui
 # Install dependencies into node_modules
 # Note node_modules is referenced in index.html
-npm install
+> npm install
 ```
 
 ### Run
@@ -59,15 +58,15 @@ Hit CTRL-C to stop the server
 
 Once Todo(s) UI is running open ``http://localhost:4040`` in a browser (Chrome :wink: :wink:).
 
-**API Offline**
+#### API Offline  
 
-<p align="center">
+<p align="center">  
     <img src="https://github.com/corbtastik/todos-images/raw/master/todos-ui/todos-ui-offline.png" width="640">
 </p>
 
-If running Todo(s) UI in offline mode (i.e. ``/api`` 404'd) then Todo(s) entered will be saved to a local array and lost when the browser closes.  Todo(s) UI will connect with [Todo(s) Gateway](https://github.com/corbtastik/todos-gateway) if running locally and if [Todo(s) API](https://github.com/corbtastik/todos-api) is also running then we can save Todo(s) entered from the browser.
+If running Todo(s) UI in offline mode (i.e. ``/api/todos`` ``404'd``) then Todo(s) entered will be saved to a local array and lost when the browser closes.  Todo(s) UI will connect with [Todo(s) Gateway](https://github.com/corbtastik/todos-gateway) if running locally and if [Todo(s) API](https://github.com/corbtastik/todos-api) is also running then we can save Todo(s) entered from the browser.
 
-**API Online**
+#### API Online
 
 Note - make sure to load the UI from the proxy (i.e. ``localhost:9999``)
 
