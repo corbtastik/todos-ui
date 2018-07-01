@@ -60,11 +60,7 @@ Once Todo(s) UI is running open ``http://localhost:4040`` in a browser (Chrome :
 
 #### API Offline  
 
-<p align="center">  
-    <img src="https://github.com/corbtastik/todos-images/raw/master/todos-ui/todos-ui-offline.png" width="640">
-</p>
-
-If running Todo(s) UI in offline mode (i.e. ``/api/todos`` ``404'd``) then Todo(s) entered will be saved to a local array and lost when the browser closes.  Todo(s) UI will connect with [Todo(s) Gateway](https://github.com/corbtastik/todos-gateway) if running locally and if [Todo(s) API](https://github.com/corbtastik/todos-api) is also running then we can save Todo(s) entered from the browser.
+If running Todo(s) UI in offline mode (i.e. ``/api/todos`` ``404'd``) then data entered will be saved to a local array and lost when the browser closes.  Todo(s) UI will connect with [Todo(s) Gateway](https://github.com/corbtastik/todos-gateway) if running locally and if [Todo(s) API](https://github.com/corbtastik/todos-api) is also running then we can save Todo(s) entered from the browser.
 
 #### API Online
 
