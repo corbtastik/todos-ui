@@ -41,7 +41,7 @@
 					let self = this;
 					values.forEach(todo => {
 						if(todo.id && !self.offline) {
-							Vue.http.patch('/api/todos/' + todo.id,todo);
+							Vue.http.patch('/api/' + todo.id,todo);
 						}
 					});
 				}
@@ -93,7 +93,7 @@
 				let result = {};
 				let self = this;
 				if(!self.offline) {
-					Vue.http.post('/api/todos/', {
+					Vue.http.post('/api/', {
 						title: todo.title,
 						completed: todo.completed
 					}).then(response => {
@@ -107,7 +107,7 @@
 			removeTodo: function (todo) {
 				let self = this;
 				if(!self.offline) {
-					Vue.http.delete( '/api/todos/' + todo.id).then(response => {
+					Vue.http.delete( '/api/' + todo.id).then(response => {
 						var index = self.todos.indexOf(todo);
 						self.todos.splice(index, 1);
 					});
@@ -146,18 +146,18 @@
 		beforeMount() {
 			let self = this;
 
-			Vue.http.get('/api/todos/').then(response => {
+			Vue.http.get('/api/').then(response => {
 				let list = JSON.parse(response.bodyText);
 				// --- meh --- from spring-boot-data-rest
 				// let list = JSON.parse(response.bodyText)._embedded.todos;
 				list.forEach(item => {
 					self.todos.push(item);	
 				});
-				console.log("INFO /api/todos is online, saving to API");
+				console.log("INFO /api is online, saving to API");
 			}, response => {
 				if(response.status===404) {
 					// api offline, save local only
-					console.log("WARN /api/todos is offline, saving local");
+					console.log("WARN /api is offline, saving local");
 					self.offline = true;
 				}
 			});
