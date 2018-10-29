@@ -20,10 +20,8 @@
 	};
 
 	exports.app = new Vue({
-
 		// the root element that will be compiled
 		el: '.todoapp',
-
 		// app initial state
 		data: {
 			todos: [],
@@ -32,7 +30,6 @@
 			visibility: 'all',
 			offline: false
 		},
-
 		// watch todos change and save via API
 		watch: {
 			todos: {
@@ -41,13 +38,12 @@
 					let self = this;
 					values.forEach(todo => {
 						if(todo.id && !self.offline) {
-							Vue.http.patch('/api/' + todo.id,todo);
+							Vue.http.patch('/todos/' + todo.id,todo);
 						}
 					});
 				}
 			}
 		},
-
 		// computed properties
 		// http://vuejs.org/guide/computed.html
 		computed: {
@@ -68,15 +64,12 @@
 				}
 			}
 		},
-
 		// methods that implement data logic.
 		// note there's no DOM manipulation here at all.
 		methods: {
-
 			pluralize: function (word, count) {
 				return word + (count === 1 ? '' : 's');
 			},
-
 			addTodo: function () {
 				var value = this.newTodo && this.newTodo.trim();
 				if (!value) {
@@ -88,12 +81,10 @@
 				});
 				this.newTodo = '';
 			},
-
 			createTodo: function(todo) {
-				let result = {};
 				let self = this;
 				if(!self.offline) {
-					Vue.http.post('/api/', {
+					Vue.http.post('/todos/', {
 						title: todo.title,
 						completed: todo.completed
 					}).then(response => {
@@ -103,11 +94,10 @@
 					self.todos.push(todo);
 				}
 			},
-
 			removeTodo: function (todo) {
 				let self = this;
 				if(!self.offline) {
-					Vue.http.delete( '/api/' + todo.id).then(response => {
+					Vue.http.delete( '/todos/' + todo.id).then(() => {
 						var index = self.todos.indexOf(todo);
 						self.todos.splice(index, 1);
 					});
@@ -116,12 +106,10 @@
 					self.todos.splice(index, 1);
 				}
 			},
-
 			editTodo: function (todo) {
 				this.beforeEditCache = todo.title;
 				this.editedTodo = todo;
 			},
-
 			doneEdit: function (todo) {
 				if (!this.editedTodo) {
 					return;
@@ -132,37 +120,30 @@
 					this.removeTodo(todo);
 				}
 			},
-
 			cancelEdit: function (todo) {
 				this.editedTodo = null;
 				todo.title = this.beforeEditCache;
 			},
-
 			removeCompleted: function () {
 				this.todos = filters.active(this.todos);
 			}
 		},
-
 		beforeMount() {
 			let self = this;
-
-			Vue.http.get('/api/').then(response => {
+			Vue.http.get('/todos/').then(response => {
 				let list = JSON.parse(response.bodyText);
-				// --- meh --- from spring-boot-data-rest
-				// let list = JSON.parse(response.bodyText)._embedded.todos;
 				list.forEach(item => {
 					self.todos.push(item);	
 				});
-				console.log("INFO /api is online, saving to API");
+				console.log("INFO /todos is online, saving to API");
 			}, response => {
 				if(response.status===404) {
 					// api offline, save local only
-					console.log("WARN /api is offline, saving local");
+					console.log("WARN /todos is offline, saving local");
 					self.offline = true;
 				}
 			});
 		},
-
 		// a custom directive to wait for the DOM to be updated
 		// before focusing on the input field.
 		// http://vuejs.org/guide/custom-directive.html

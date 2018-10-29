@@ -1,4 +1,4 @@
-app:
+ui:
   name: todos-ui
   memory: 512MB
   route: todos-ui.cfapps.io

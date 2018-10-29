@@ -1,9 +1,7 @@
 /*global app, Router */
 
 (function (app, Router) {
-
 	'use strict';
-
 	var router = new Router();
 
 	['all', 'active', 'completed'].forEach(function (visibility) {

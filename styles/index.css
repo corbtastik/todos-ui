@@ -1,0 +1,19 @@
+.todoapp h1 {
+    color: #00AE9E;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.info {
+    color: #11357F;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;    
+}
+
+.info a {
+	color: #FF0053;
+	text-decoration: none;
+}
+
+.info a:hover {
+	text-decoration: underline;
+}
