@@ -1,9 +1,9 @@
 ---
 applications:
-- name: ((app.name))
-  memory: ((app.memory))
+- name: ((ui.name))
+  memory: ((ui.memory))
   routes:
-  - route: ((app.route))
+  - route: ((ui.route))
   buildpack: staticfile_buildpack
   env:
     ((env-key-1)): ((env-val-1))
